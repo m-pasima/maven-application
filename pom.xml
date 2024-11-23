@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mt</groupId>
-    <artifactId>maven-standalone-application</artifactId> 
+    <artifactId>maven-standalone-application</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>maven-standalone-application</name> 
+    <name>maven-standalone-application</name>
     <url>https://m-pasima.github.io/The-DevOps-Academy/</url>
 
     <organization>
@@ -19,23 +19,23 @@
 
     <properties>
         <sonar.host.url>http://35.154.242.68:9000/</sonar.host.url>
-        
-        <sonar.login>admin</sonar.login> 
-        <sonar.password>admin</sonar.password> 
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin</sonar.password>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <!-- JUnit 5 Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.2</version> 
+            <version>5.7.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.7.2</version> 
+            <version>5.7.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -54,6 +54,7 @@
 
     <build>
         <plugins>
+            <!-- Plugin for building the JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -63,9 +64,31 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.mt.sample.DevOpsWorld</mainClass> <!-- Update Main Class -->
+                            <mainClass>com.mt.sample.DevOpsWorld</mainClass> <!-- Correct Main Class -->
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin for running the application -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>com.mt.sample.DevOpsWorld</mainClass> <!-- Specify the main class to run -->
+                </configuration>
+            </plugin>
+
+            <!-- Ensure proper test execution for JUnit 5 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <dependenciesToScan>
+                        <dependency>org.junit.jupiter</dependency>
+                    </dependenciesToScan>
                 </configuration>
             </plugin>
         </plugins>

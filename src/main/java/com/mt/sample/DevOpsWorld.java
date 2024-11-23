@@ -1,5 +1,8 @@
 package com.mt.sample;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Welcome to The DevOps Academy Master Class.
  * 
@@ -9,12 +12,10 @@ package com.mt.sample;
  * Author: DevOps Academy
  * Date: 2024-11-22
  */
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class DevOpsWorld {
 
     public static void main(String[] args) {
+        // Display welcome message and date
         System.out.println("Hello Engineers, Welcome to The DevOps Academy Master Class.");
         System.out.println("You are currently studying the Maven Build Tool.");
         System.out.println("Today's Date: " + getLocalCurrentDate());
