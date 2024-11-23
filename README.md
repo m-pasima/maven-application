@@ -113,7 +113,7 @@ This project is configured to integrate with **SonarQube** for continuous code q
 
 The configuration in the `pom.xml` includes:
 
-- **SonarQube Host URL**: `http://35.154.242.68:9000/`
+- **SonarQube Host URL**: `http://Hostname:9000/`
 - **SonarQube Login Credentials**: `admin` (username) and `admin` (password).
 
 Please ensure your SonarQube instance is properly set up and accessible before running the SonarQube analysis.
